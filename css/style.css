@@ -1,0 +1,505 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #FFB6C1 0%, #DDA0DD 50%, #87CEEB 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.main-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+    animation: bounce 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.stars-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.star {
+    font-size: 2rem;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Botões principais */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.user-button, .admin-button {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 25px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-button:hover, .admin-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.manuela-btn {
+    background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+}
+
+.heloisa-btn {
+    background: linear-gradient(135deg, #DDA0DD, #E6E6FA);
+}
+
+.admin-button {
+    background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+}
+
+.button-icon {
+    font-size: 3rem;
+    min-width: 60px;
+}
+
+.button-text {
+    flex: 1;
+    text-align: left;
+}
+
+.button-text h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.button-text p {
+    color: #666;
+    font-weight: 600;
+}
+
+.button-decoration {
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    position: relative;
+}
+
+.floating-elements {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.floating-star, .floating-heart {
+    font-size: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-star:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.floating-heart {
+    animation-delay: 2s;
+}
+
+/* Páginas individuais */
+.page-header {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.manuela-page .page-title {
+    color: #FF69B4;
+}
+
+.heloisa-page .page-title {
+    color: #9370DB;
+}
+
+.admin-page .page-title {
+    color: #4682B4;
+}
+
+.points-display {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Lista de tarefas */
+.tasks-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.task-item {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 5px solid #FFB6C1;
+}
+
+.task-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background: #f0f8ff;
+    border-left-color: #32CD32;
+}
+
+.task-checkbox {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 3px solid #FFB6C1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.task-checkbox.checked {
+    background: #32CD32;
+    border-color: #32CD32;
+}
+
+.task-checkbox.checked::after {
+    content: '✓';
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.task-points {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.task-points-value {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* Área administrativa */
+.admin-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section h3 {
+    color: #4682B4;
+    margin-bottom: 20px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #87CEEB;
+}
+
+.btn {
+    background: linear-gradient(135deg, #87CEEB, #4682B4);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #FF6B6B, #FF4757);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #32CD32, #228B22);
+}
+
+/* Navegação */
+.nav-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animação de conclusão de tarefa */
+.task-completed-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    z-index: 1000;
+    animation: celebrationPop 1s ease-out;
+    pointer-events: none;
+}
+
+@keyframes celebrationPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .user-button, .admin-button {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .button-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .button-icon {
+        font-size: 2.5rem;
+        min-width: 50px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .task-item {
+        padding: 15px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .user-button, .admin-button {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .button-text h2 {
+        font-size: 1.3rem;
+    }
+    
+    .button-text p {
+        font-size: 0.9rem;
+    }
+    
+    .button-icon {
+        font-size: 2rem;
+        min-width: 40px;
+    }
+    
+    .stars-decoration {
+        gap: 10px;
+    }
+    
+    .star {
+        font-size: 1.5rem;
+    }
+}
+
