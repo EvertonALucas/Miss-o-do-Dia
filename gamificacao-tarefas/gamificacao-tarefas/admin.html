@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área dos Pais - Tarefas Mágicas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <div class="container">
+        <header class="page-header">
+            <div class="stars-decoration">
+                <span class="star">🔧</span>
+                <span class="star">⚙️</span>
+                <span class="star">🔧</span>
+            </div>
+            <h1 class="page-title">Área dos Pais 👨‍👩‍👧‍👧</h1>
+            <p class="subtitle">Gerencie as tarefas das suas filhas</p>
+        </header>
+
+        <!-- Seção de Pontuação Atual -->
+        <section class="admin-section">
+            <h3>📊 Pontuação Atual</h3>
+            <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+                <div style="text-align: center; background: linear-gradient(135deg, #FFB6C1, #FFC0CB); padding: 20px; border-radius: 15px; color: white; min-width: 150px;">
+                    <h4>Manuela 🌸</h4>
+                    <div style="font-size: 2rem; font-weight: bold;" id="admin-manuela-points">0</div>
+                    <div>pontos</div>
+                </div>
+                <div style="text-align: center; background: linear-gradient(135deg, #DDA0DD, #E6E6FA); padding: 20px; border-radius: 15px; color: white; min-width: 150px;">
+                    <h4>Heloisa 🦋</h4>
+                    <div style="font-size: 2rem; font-weight: bold;" id="admin-heloisa-points">0</div>
+                    <div>pontos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Adicionar Tarefa -->
+        <section class="admin-section">
+            <h3>➕ Adicionar Nova Tarefa</h3>
+            <form id="add-task-form">
+                <div class="form-group">
+                    <label for="task-name">Nome da Tarefa:</label>
+                    <input type="text" id="task-name" placeholder="Ex: Arrumar a cama" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-points">Pontos da Tarefa:</label>
+                    <input type="number" id="task-points" min="1" max="100" value="10" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-user">Atribuir para:</label>
+                    <select id="task-user" required>
+                        <option value="">Selecione...</option>
+                        <option value="manuela">Manuela 🌸</option>
+                        <option value="heloisa">Heloisa 🦋</option>
+                        <option value="both">Ambas 👭</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-success">✅ Adicionar Tarefa</button>
+            </form>
+        </section>
+
+        <!-- Seção de Editar Tarefa -->
+        <section class="admin-section" id="edit-task-section" style="display: none;">
+            <h3>✏️ Editar Tarefa</h3>
+            <form id="edit-task-form">
+                <input type="hidden" id="edit-task-id">
+                <input type="hidden" id="edit-task-user">
+                
+                <div class="form-group">
+                    <label for="edit-task-name">Nome da Tarefa:</label>
+                    <input type="text" id="edit-task-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-task-points">Pontos da Tarefa:</label>
+                    <input type="number" id="edit-task-points" min="1" max="100" required>
+                </div>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-success">✅ Salvar Alterações</button>
+                    <button type="button" class="btn" onclick="cancelEditTask()">❌ Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Seção de Tarefas Existentes -->
+        <section class="admin-section">
+            <h3>📋 Tarefas Existentes</h3>
+            
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #FF69B4; margin-bottom: 15px;">Tarefas da Manuela 🌸</h4>
+                <div id="admin-manuela-tasks" class="admin-tasks-list">
+                    <!-- Tarefas da Manuela serão carregadas aqui -->
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #9370DB; margin-bottom: 15px;">Tarefas da Heloisa 🦋</h4>
+                <div id="admin-heloisa-tasks" class="admin-tasks-list">
+                    <!-- Tarefas da Heloisa serão carregadas aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Ações Administrativas -->
+        <section class="admin-section">
+            <h3>⚙️ Ações Administrativas</h3>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <button class="btn btn-danger" onclick="resetPoints('manuela')">
+                    🔄 Resetar Pontos da Manuela
+                </button>
+                <button class="btn btn-danger" onclick="resetPoints('heloisa')">
+                    🔄 Resetar Pontos da Heloisa
+                </button>
+                <button class="btn btn-danger" onclick="resetAllTasks()">
+                    🗑️ Limpar Todas as Tarefas
+                </button>
+                <button class="btn" onclick="exportData()">
+                    💾 Exportar Dados
+                </button>
+            </div>
+        </section>
+
+        <nav style="text-align: center; margin-top: 30px;">
+            <button class="nav-button" onclick="goToPage('index.html')">
+                🏠 Voltar ao Início
+            </button>
+        </nav>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar página administrativa
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAdminData();
+            
+            // Configurar formulário de adicionar tarefa
+            document.getElementById('add-task-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                addNewTask();
+            });
+            
+            // Configurar formulário de editar tarefa
+            document.getElementById('edit-task-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveEditTask();
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas da Heloisa - Tarefas Mágicas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="heloisa-page">
+    <div class="container">
+        <header class="page-header">
+            <div class="stars-decoration">
+                <span class="star">🦋</span>
+                <span class="star">✨</span>
+                <span class="star">🦋</span>
+            </div>
+            <h1 class="page-title">Olá, Heloisa! 👧🏻</h1>
+            <p class="subtitle">Vamos ganhar muitos pontos!</p>
+            <div class="points-display">
+                <span>🏆 Pontos: </span>
+                <span id="heloisa-points">0</span>
+                <span> ⭐</span>
+            </div>
+        </header>
+
+        <main class="tasks-container">
+            <h3>📝 Suas Tarefas</h3>
+            <div id="heloisa-tasks" class="tasks-list">
+                <!-- Tarefas serão carregadas aqui pelo JavaScript -->
+            </div>
+            
+            <div class="empty-state" id="heloisa-empty" style="display: none;">
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+                    <h3>Parabéns, Heloisa!</h3>
+                    <p>Você completou todas as suas tarefas!</p>
+                    <p>Peça para os papais adicionarem mais tarefas para você! 🌟</p>
+                </div>
+            </div>
+        </main>
+
+        <nav style="text-align: center; margin-top: 30px;">
+            <button class="nav-button" onclick="goToPage('index.html')">
+                🏠 Voltar ao Início
+            </button>
+        </nav>
+    </div>
+
+    <!-- Elemento para animações de celebração -->
+    <div id="celebration-animation"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar página da Heloisa
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserTasks('heloisa');
+            updatePointsDisplay('heloisa');
+        });
+    </script>
+</body>
+</html>
+
